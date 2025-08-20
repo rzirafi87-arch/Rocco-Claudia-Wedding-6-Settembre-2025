@@ -1,90 +1,125 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rocco & Claudia</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rocco & Claudia — 6 Settembre 2025</title>
 <style>
-  html, body {
-    height: 100%;
-    margin: 0;
+  :root{
+    --salvia:#6b7b5a;
+    --salvia-scuro:#445838;
+    --ombra:rgba(0,0,0,.25);
   }
 
-  body {
-    background: url("sfondo-orizzontale.png") no-repeat center center;
-    background-size: cover;
-    font-family: Georgia, serif;
-    color: #333;
+  /* Reset base */
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: Georgia, "Times New Roman", serif;
+    color:#333;
   }
 
-  /* Mobile */
-  @media (max-width: 768px) {
-    body {
-      background: url("sfondo-verticale.png") no-repeat center center;
-      background-size: cover;
+  /* Sfondo di default: DESKTOP (orizzontale) */
+  body{
+    background-image:url("./sfondo-orizzontale.png?v=1");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+  }
+
+  /* CTA sinistra: Chiesa / Ricevimento */
+  .cta-left{
+    position:fixed;
+    left:18px;
+    bottom:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:2;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 16px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#fff;
+    background:#556846;
+    font-weight:700;
+    box-shadow:0 8px 18px var(--ombra);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{ background:var(--salvia-scuro); transform:translateY(-2px); }
+
+  /* Frase + Album (centrati) */
+  .center-wrap{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:12vh;              /* stacca dal bordo basso */
+    width:min(92vw, 800px);
+    text-align:center;
+    z-index:2;
+  }
+  .phrase{
+    margin:16px 0 18px;
+    font-style:italic;
+    font-size:clamp(16px,2.5vw,22px);
+    color:#444;
+  }
+  .album{
+    display:inline-block;
+    padding:14px 20px;
+    border-radius:12px;
+    background:#556846;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    box-shadow:0 8px 18px var(--ombra);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .album:hover{ background:var(--salvia-scuro); transform:translateY(-2px); }
+
+  /* MOBILE: sfondo verticale e micro-regolazioni */
+  @media (max-width: 820px) {
+    body{
+      /* usa lo sfondo verticale quando lo schermo è “stretto/alto” */
+      background-image:url("./sfondo-verticale.png?v=1");
+      background-size:cover;
+      background-position:center top;
     }
+    .center-wrap{
+      bottom:10vh;
+      width:min(92vw, 640px);
+    }
+    .phrase{ font-size:clamp(16px,4.2vw,20px); }
   }
 
-  /* Bottone Album */
-  .album {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 22%;
-    display: inline-block;
-    background: #556846;
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 20px;
-    border-radius: 12px;
-    font-weight: 700;
-    box-shadow: 0 8px 18px rgba(0,0,0,.25);
-    transition: .2s;
-  }
-  .album:hover {
-    background: #445838;
-    transform: translateX(-50%) translateY(-2px);
-  }
-
-  /* Link utili */
-  .cta-left {
-    position: absolute;
-    left: 28px;
-    bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #556846;
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-weight: 700;
-    box-shadow: 0 8px 18px rgba(0,0,0,.25);
-    transition: .2s;
-  }
-  .cta:hover {
-    background: #445838;
-    transform: translateY(-2px);
+  /* Per schermi molto bassi: evita sovrapposizioni */
+  @media (max-height: 560px) {
+    .center-wrap{ bottom:8vh; }
   }
 </style>
 </head>
 <body>
 
-  <!-- Bottone Album -->
-  <a class="album" href="https://photos.app.goo.gl/Zo1bhxAEnwmW7yi48" target="_blank">📸 Album Foto</a>
+  <!-- CTA in basso a sinistra -->
+  <div class="cta-left" aria-label="Link utili">
+    <a class="btn" href="https://maps.app.goo.gl/tT23MCJrEutKfNp1A" target="_blank" rel="noopener">📍 Chiesa</a>
+    <a class="btn" href="https://maps.app.goo.gl/ysow3DaFoUKMxufBA" target="_blank" rel="noopener">🍽️🥂 Ricevimento</a>
+  </div>
 
-  <!-- Link utili -->
-  <div class="cta-left">
-    <a class="cta" href="https://maps.app.goo.gl/tT23MCJrEutKfNp1A" target="_blank">📍 Chiesa</a>
-    <a class="cta" href="https://maps.app.goo.gl/ysow3DaFoUKMxufBA" target="_blank">🍽️🥂 Ricevimento</a>
+  <!-- Frase + link Album al centro in basso -->
+  <div class="center-wrap">
+    <p class="phrase">“Ci sono attimi che restano impressi più di mille parole. Aiutaci a custodirli con i tuoi occhi!”</p>
+    <a class="album" href="https://photos.app.goo.gl/Zo1bhxAEnwmW7yi48" target="_blank" rel="noopener">📸 Album Foto</a>
   </div>
 
 </body>
 </html>
+
+
+</body>
+</html>
+
