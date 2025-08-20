@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Rocco & Claudia – Wedding – 6 Settembre 2025</title>
+  <style>
+    :root {
+      --salvia: #8A9A8A;
+      --oliva: #5C6D5C;
+      --tortora: #D6CFC4;
+      --avorio: #F8F6F2;
+    }
+    body {
+      margin:0;
+      font-family: Georgia, serif;
+      display: flex;
+      flex-direction: row;       /* layout orizzontale */
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: url("Inizio Elegante di Rocco e Claudia.png") no-repeat center/cover;
+      color: #333;
+    }
+    .overlay {
+      position: absolute;
+      inset:0;
+      background: rgba(138,154,138,0.35); /* velatura salvia */
+      z-index:0;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 90%;
+      background: rgba(255,255,255,0.75);
+      border: 2px dashed var(--tortora);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .logo {
+      width: 160px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: var(--salvia);
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 20px;
+      border-radius: 12px;
+      background: var(--salvia);
+      color:white;
+      font-weight:bold;
+      text-decoration:none;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    }
+    .btn:hover { background: var(--oliva); }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="container">
+    <img class="logo" src="LogoVerde.png" alt="Logo R & C">
+    <h2>Link utili</h2>
+    <p>15:30 – Funzione Religiosa<br>A seguire – Ricevimento (La Tenuta)</p>
+    <div class="buttons">
+      <a class="btn" href="https://maps.app.goo.gl/tT23MCJrEutKfNp1A" target="_blank">📍 Chiesa</a>
+      <a class="btn" href="https://maps.app.goo.gl/ysow3DaFoUKMxufBA" target="_blank">🍽️ Ristorante</a>
+      <a class="btn" href="https://photos.app.goo.gl/Zo1bhxAEnwmW7yi48" target="_blank">📸 Album Foto</a>
+    </div>
+  </div>
+</body>
+</html>
